@@ -7,23 +7,25 @@
 
 int main() {
     TaylorSeries model(50.0, 360);
+    Controller controller(model);
+
     ConsoleView consoleView;
     GraphicalView graphicalView;
 
-    Controller consoleController(model, consoleView);
-    Controller graphicalController(model, graphicalView);
+    controller.attachView(&consoleView);
+    controller.attachView(&graphicalView);
 
-    // Generate random input data
-    std::vector<double> inputData;
-    for (int i = 0; i < 360; ++i) {
-        inputData.push_back(static_cast<double>(rand() % 1000) / 1000);
+    if (controller.trainModel()) {
+        std::vector<double> inputData;
+        for (int i = 0; i < 360; ++i) {
+            inputData.push_back(static_cast<double>(rand() % 1000) / 1000);
+        }
+        controller.predict(inputData);
+        controller.displayPredictions();
     }
 
-    // Use ConsoleView
-    consoleController.execute(inputData);
-
-    // Use GraphicalView
-    graphicalController.execute(inputData);
+    controller.detachView(&graphicalView);
+    controller.detachView(&consoleView);
 
     return 0;
 }
