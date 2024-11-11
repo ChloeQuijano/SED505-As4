@@ -9,4 +9,7 @@ C/C++ is the most appropriate language due to its superior performance, runtime 
 - GUI Applications on the Desktop: For example, applications like a text editor or drawing tool would have a Model that manages data within (example: document content or the shapes being drawn), the View will render the user interface and the Controller processes the user interactions (example: mouse clicks, keystrokes).
 
 3. What might cause a test build to behave differently from a release build?
+test builds in this project contains additional debuggimng informtaion, directives like #ifndef TEST_BUILD, leading to behavioral differecnes. Release builds are optimized for performance, excluding debuf information, which might result in variation in timing.
+
 4. Did you use interface classes for all components in this assignment? If not, why?
+
