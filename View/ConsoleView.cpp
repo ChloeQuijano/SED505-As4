@@ -1,10 +1,5 @@
 #include "ConsoleView.h"
-#include <iostream>
 
-class ConsoleView : public View {
-public:
-    void displayPrediction(double prediction) override {
-        std::cout << "Console Prediction: " << prediction << std::endl;
-    }
-};
-
+void ConsoleView::displayPrediction(double prediction) {
+    std::cout << "Console Prediction: " << prediction << std::endl;
+}
