@@ -14,9 +14,8 @@ public:
     TaylorSeries(double frequency, int stepCount);
 
     int train();
+    double predict(const std::vector<double>& inputData);
     int errorAnalysis();
-
-    const std::vector<double>& getWeights() const;
 };
 
 #endif

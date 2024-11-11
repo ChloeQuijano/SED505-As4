@@ -52,6 +52,14 @@ int TaylorSeries::train() {
     }
 }
 
+double TaylorSeries::predict(const std::vector<double>& inputData) {
+    double prediction = 0.0;
+    for (size_t i = 0; i < inputData.size() && i < weights.size(); ++i) {
+        prediction += weights[i] * inputData[i];
+    }
+    return prediction;
+}
+
 int TaylorSeries::errorAnalysis() {
     double stdDev = 0.0;
     const double TOLERANCE = 0.001;
@@ -73,8 +81,4 @@ int TaylorSeries::errorAnalysis() {
         std::cout << "The training model is accurate." << std::endl;
     }
     return retVal;
-}
-
-const std::vector<double>& TaylorSeries::getWeights() const {
-    return weights;
 }
