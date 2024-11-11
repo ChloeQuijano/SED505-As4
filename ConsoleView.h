@@ -5,8 +5,7 @@
 
 class ConsoleView : public View {
 public:
-    void displayWeights(const std::vector<double>& weights) override;
-    void displayMessage(const std::string& message) override;
+    void displayPrediction(double prediction) override;
 };
 
 #endif
