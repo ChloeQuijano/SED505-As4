@@ -10,7 +10,7 @@ C/C++ is the most appropriate language due to its superior performance, runtime 
 
 3. What might cause a test build to behave differently from a release build?
 
-Test builds in this project contains additional debuggimng informtaion, directives like #ifndef TEST_BUILD, leading to behavioral differecnes. Release builds are optimized for performance, excluding debuf information, which might result in variation in timing.
+Test builds in this project include additional debugging information and conditional compilation directives like `#ifndef TEST_BUILD`, which can enable or disable specific code sections for debugging purposes. These directives can cause differences in behavior between test and release builds.
 
 4. Did you use interface classes for all components in this assignment? If not, why?
 
