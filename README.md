@@ -77,8 +77,5 @@ Console Prediction: 2.27915
 Graphical Prediction: 2.27915
 
 ## Questions
-**TODO**
-1. Why should this code be written in C/C++ only? Why not Java, C# or Python?
-2. Name two other possible common usages for this design pattern.
-3. What might cause a test build to behave differently from a release build?
-4. Did you use interface classes for all components in this assignment? If not, why?
+[Questions](questions.md)
+
