@@ -18,8 +18,8 @@ private:
 	const int steps = 360;
 	const double PI = 3.141592653589793238;
 public:
-	TaylorSeries(double frequency, int stepCount) 
-	: freq(frequency), steps(stepCount), PI(3.141592653589793238) {
+	TaylorSeries(double frequency, int stepCount)
+		: freq(frequency), steps(stepCount), PI(3.141592653589793238) {
 		weights.resize(steps);
 	}
 	int train();
@@ -64,12 +64,12 @@ int TaylorSeries::train() {
 
 			weights[i] = approxSine; // assign the weight
 
-			#ifdef TEST_BUILD//define TEST_BUILD to visually see the accuracy of the Taylor Series
-					std::cout.precision(6);
-					std::cout.setf(std::ios::fixed);
-					double trueValue = sin(x);
-					std::cout << "i: " << i << " time: " << time << " weights:" << weights[i] << " trueValue: " << trueValue << std::endl;*/
-			#endif
+#ifdef TEST_BUILD//define TEST_BUILD to visually see the accuracy of the Taylor Series
+			std::cout.precision(6);
+			std::cout.setf(std::ios::fixed);
+			double trueValue = sin(x);
+			std::cout << "i: " << i << " time: " << time << " weights:" << weights[i] << " trueValue: " << trueValue << std::endl;
+#endif
 		}
 
 		//Generate the second quarter of the sine wave from the first quarter
@@ -81,7 +81,7 @@ int TaylorSeries::train() {
 		for (int i = steps / 2; i < steps; ++i) {
 			weights[i] = -weights[i - steps / 2];
 		}
-		
+
 		// Check the accuracy of the model
 		if (ErrorAnalysis() == 0) {
 			return 0; // success = exit the loop
